@@ -21,9 +21,9 @@ impl State {
         }
     }
     fn play(&mut self, ctx: &mut BTerm) {
+        ctx.cls_bg(NAVY);
         ctx.print(0, 0, "Press space to flap");
         ctx.print(0, 1, &format!("Score: {}", self.score));
-        ctx.cls_bg(NAVY);
         self.obstacle.render(ctx, self.player.x);
         if self.player.x > self.obstacle.x {
             self.score += 1;
