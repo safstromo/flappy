@@ -1,7 +1,8 @@
-use std::fmt::format;
-
 use bracket_lib::prelude::*;
 
+const SCREEN_WIDTH: i32 = 80;
+const SCREEN_HEIGHT: i32 = 50;
+const FRAME_DURATION: f32 = 10.0;
 struct State {
     mode: GameMode,
     frame_time: f32,
@@ -95,9 +96,6 @@ enum GameMode {
     Playing,
     End,
 }
-const SCREEN_WIDTH: i32 = 80;
-const SCREEN_HEIGHT: i32 = 50;
-const FRAME_DURATION: f32 = 75.0;
 
 struct Player {
     x: i32,
