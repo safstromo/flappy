@@ -2,11 +2,15 @@ use bracket_lib::prelude::*;
 
 struct State {
     mode: GameMode,
+    frame_time: f32,
+    player: Player,
 }
 impl State {
     fn new() -> Self {
         State {
             mode: GameMode::Menu,
+            frame_time: 0.0,
+            player: Player::new(5, 25),
         }
     }
     fn play(&mut self, ctx: &mut BTerm) {
@@ -14,6 +18,8 @@ impl State {
         self.mode = GameMode::End;
     }
     fn restart(&mut self) {
+        self.player = Player::new(5, 25);
+        self.frame_time = 0.0;
         self.mode = GameMode::Playing;
     }
     fn main_menu(&mut self, ctx: &mut BTerm) {
